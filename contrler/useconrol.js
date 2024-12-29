@@ -67,3 +67,19 @@ export function loginuser(req,res){
         }
     })
 }
+
+export function deleteuser(req,res){
+    const email = req.body.email;
+    user.deleteOne({email:email}).then(()=>{
+        res.json({
+            masage:"user deleted"
+        })
+
+    }).catch((err)=>{
+    res.json({
+           error:err
+    })
+
+ } )
+
+}
