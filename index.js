@@ -10,8 +10,9 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const mongodburl= process.env.MONGO_DB_URL;
+
 const app = express();
+const mongodburl= process.env.MONGO_DB_URL;
 mongoose.connect(mongodburl,{});
 const connciton = mongoose.connection;
 
