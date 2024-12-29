@@ -72,7 +72,7 @@ export function deleteuser(req,res){
     const email = req.body.email;
     user.deleteOne({email:email}).then(()=>{
         res.json({
-            masage:"user deleted"
+            masage:"user deleted from the data base"
         })
 
     }).catch((err)=>{
