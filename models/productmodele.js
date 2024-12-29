@@ -5,7 +5,7 @@ const pdrouctscheema = mongoose.Schema(
         name : String,
         price : Number,
         brnad : String,
-        lastprice :string,
+       
 
     }
 )

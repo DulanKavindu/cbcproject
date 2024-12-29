@@ -17,21 +17,23 @@ newproduct.save().then(()=>{
 
 }
 
-export function productfind(req,res){
+export async function productfind(req,res){
+
+    try{
     
-    product.find().then((productlist)=>{
+   const productlist = await product.find()
         res.json({
             list:productlist
         })
+    }catch(e){
+        res.json({
+            error:e
+        })
+    }
 
-
-        }).catch((error)=>{
-  
-            res.json({
-               masage:error
-            })
+       
     
-})
+
 }
 
 export function deleteproduct(req,res){
