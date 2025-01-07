@@ -8,13 +8,15 @@ import userrouter from './routers/userrouter.js';
 import jsonwebtoken from 'jsonwebtoken';
 import dotenv from "dotenv";
 
+
+
 dotenv.config();
-
-
 const app = express();
-const mongodburl= process.env.MONGO_DB_URL;
+
+const mongodburl = process.env.MONGO_DB_URL;
 mongoose.connect(mongodburl,{});
 const connciton = mongoose.connection;
+
 
 connciton.once("open",()=>{
     console.log("DATA BASE CREATED");
