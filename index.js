@@ -9,14 +9,14 @@ import jsonwebtoken from 'jsonwebtoken';
 import dotenv from "dotenv";
 
 
+//end ekata dapu semi colon ; eke aula thibila thiyenne
 
 dotenv.config();
 const app = express();
 
 const mongodburl = process.env.MONGO_DB_URL;
-mongoose.connect(mongodburl,{});
+mongoose.connect(mongodburl, {}); 
 const connciton = mongoose.connection;
-
 
 connciton.once("open",()=>{
     console.log("DATA BASE CREATED");
@@ -25,7 +25,8 @@ connciton.once("open",()=>{
 app.use(bodyParser.json());
 app.use(
     (req,res,next)=>{
-    const token = req.header("Authorization")?.replace("Bearer","");
+    //oyage code eke me palleha line keth waraddak thiyenawa. Bearer kiyana ekata passen space ekak enna ona
+    const token = req.header("Authorization")?.replace("Bearer ","");
    if(token!=null){
     jsonwebtoken.verify(token,"cbc-secrect-key-7973" , (error,decode)=>{
         if(!error){

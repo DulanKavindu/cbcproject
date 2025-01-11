@@ -36,7 +36,7 @@ export function finduser(req,res){
 
 export function loginuser(req,res){
     user.find({email:req.body.email}).then((list)=>{
-        if(list.lenth==0){
+        if(list.length==0){
             res.json({
                 masage:"plz frist sigin"
             })
@@ -61,7 +61,7 @@ export function loginuser(req,res){
             }
             else{
                 res.json({
-                    masage:"user plz entare valid email"
+                    masage:"user plz entare valid password"
                 })
             }
         }
