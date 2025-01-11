@@ -1,6 +1,8 @@
 import user from "../models/usermodel.js";
 import bcrypt from 'bcrypt';
 import  JsonWebToken from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config()
 
 export function saveuser(req,res){
     const newuserdata = req.body;
@@ -11,7 +13,7 @@ export function saveuser(req,res){
             })
             return;
         }
-        if(req.user.type!="admin")
+        if(req.user.type != "admin")
         {
             res.json({
                 masage:"plz log as a admin to create admin accounts"
@@ -71,7 +73,7 @@ export function loginuser(req,res){
                   type    :user.type,
                   profilepic:user.profilepic
 
-                },process.env.secreact)
+                },process.env.SECRET)
                 res.json({
                     massage:"usre login",
                     token:token

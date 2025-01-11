@@ -28,7 +28,7 @@ app.use(
     //oyage code eke me palleha line keth waraddak thiyenawa. Bearer kiyana ekata passen space ekak enna ona
     const token = req.header("Authorization")?.replace("Bearer ","");
    if(token!=null){
-    jsonwebtoken.verify(token,process.env.secreact, (error,decode)=>{
+    jsonwebtoken.verify(token,process.env.SECRET, (error,decode)=>{
         if(!error){
             req.user=decode;
 
