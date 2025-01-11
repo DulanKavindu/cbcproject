@@ -47,13 +47,13 @@ export function loginuser(req,res){
             if(ispass){
                 const token = JsonWebToken.sign({
                   email : user.email,
-                  firstname : user.firstname ,
+                  firstname : user.firstname,
                   lastname :user.lastname,
                   isBlocked :user.isBlocked,
                   type    :user.type,
                   profilepic:user.profilepic
 
-                },"cbc-secrect-key-7973")
+                },process.env.secreact)
                 res.json({
                     massage:"usre login",
                     token:token
