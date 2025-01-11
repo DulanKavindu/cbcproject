@@ -4,23 +4,26 @@ import  JsonWebToken from "jsonwebtoken";
 
 export function saveuser(req,res){
     const newuserdata = req.body;
-   
-    newuserdata.password = bcrypt.hashSync(newuserdata.password,10);
-    const newuser = new user(newuserdata);
-    if(newuser.type=="admin"){
+    if(newuserdata.type=="admin"){
         if(req.user==null){
             res.json({
-                masage:"plz log adimn account"
+                masage:"plz log as a admin to create admin accounts"
             })
+            return;
         }
-        return;
+        if(req.user.type!="admin")
+        {
+            res.json({
+                masage:"plz log as a admin to create admin accounts"
+            })
+            return;
+        }
     }
-    if(req.user.type!="admin"){
-        res.json({
-            masage:"plz log adimn account"
-        })
-
-    }
+    
+ 
+    newuserdata.password = bcrypt.hashSync(newuserdata.password,10);
+    const newuser = new user(newuserdata);
+   
     newuser.save().then(()=>{
         
         res.json({
@@ -34,6 +37,7 @@ export function saveuser(req,res){
 
 )
 }
+
 
 export function finduser(req,res){
 
@@ -97,3 +101,5 @@ export function deleteuser(req,res){
  } )
 
 }
+//janedoe@example1.com",hashedPassword1(costomer)
+//janedoe@example51.com,"hashedPassword10(adimn)
