@@ -7,6 +7,20 @@ export function saveuser(req,res){
    
     newuserdata.password = bcrypt.hashSync(newuserdata.password,10);
     const newuser = new user(newuserdata);
+    if(newuser.type=="admin"){
+        if(req.user==null){
+            res.json({
+                masage:"plz log adimn account"
+            })
+        }
+        return;
+    }
+    if(req.user.type!="admin"){
+        res.json({
+            masage:"plz log adimn account"
+        })
+
+    }
     newuser.save().then(()=>{
         
         res.json({
