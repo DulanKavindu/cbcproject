@@ -103,5 +103,45 @@ export function deleteuser(req,res){
  } )
 
 }
+
+export default isadmin(){
+    
+    if(req.body=="admin")
+    {
+        if(req.body==null){
+            res.json({
+                masage:"plz log as a admin"
+            })
+            return;
+        }
+        if(req.body.type!="admin")
+        {
+            res.json({
+                masage:"plz log as a admin"
+            })
+            return;
+        }
+    }
+}
+export default iscustomer(){
+    
+    if(req.body=="customer")
+    {
+        if(req.body==null){
+            res.json({
+                masage:"plz log as a costomer"
+            })
+            return;
+        }
+        if(req.body.type!="customer")
+        {
+            res.json({
+                masage:"plz log as a customer"
+            })
+            return;
+        }
+    }
+}
+
 //janedoe@example1.com",hashedPassword1(costomer)
 //janedoe@example51.com,"hashedPassword10(adimn)
