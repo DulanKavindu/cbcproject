@@ -104,7 +104,7 @@ export function deleteuser(req,res){
 
 }
 
-export default isadmin(){
+export  function isadmin(req,res){
     
     if(req.body=="admin")
     {
@@ -123,7 +123,7 @@ export default isadmin(){
         }
     }
 }
-export default iscustomer(){
+export  function iscustomer(){
     
     if(req.body=="customer")
     {
