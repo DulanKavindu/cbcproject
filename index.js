@@ -7,6 +7,7 @@ import productrouter from './routers/productrouter.js';
 import userrouter from './routers/userrouter.js';
 import jsonwebtoken from 'jsonwebtoken';
 import dotenv from "dotenv";
+import oderrouter from './routers/oderrouter.js';
 
 
 //end ekata dapu semi colon ; eke aula thibila thiyenne
@@ -53,6 +54,7 @@ app.use(
 app.use('/api/studentl',studentrouter1);
 app.use("/api/product",productrouter);
 app.use("/api/user",userrouter);
+app.use("/api/oder",oderrouter);
 //server eka start karnna ona anthimata
 app.listen(5000,()=>{
     console.log("server run on 5000 port number");
